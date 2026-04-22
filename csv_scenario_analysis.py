@@ -42,8 +42,19 @@ def analyze_scenarios(scenarios):
 
     return category_counts, unique_locations
 
+def export_to_csv(category_counts, output_file="summary.csv"):
+    try:
+        with open(output_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(["Category", "Count"])
+            for category, count in category_counts.items():
+                writer.writerow([category, count])
+        print(f"Summary successully exported to {output_file}")
+    except Exception as e:
+        print(f"Export failed: {e}")
 if __name__ == "__main__":
     scenarios_list = process_scenarios(file_path)
 
     if scenarios_list:
         cat_counts, locations = analyze_scenarios(scenarios_list)
+        export_to_csv(cat_counts)

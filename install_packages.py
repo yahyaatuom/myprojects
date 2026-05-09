@@ -1,9 +1,10 @@
+#These are the required packages for the practice programs we ran.
 import sys
 
 packages = [
     'numpy', 'pandas', 'matplotlib', 'rasterio',
     'geopandas', 'folium',
-    'sklearn', 'torch', 'dowhy', 'netwrokx'
+    'sklearn', 'torch', 'dowhy', 'networkx'
 ]
 
 for pkg in packages:

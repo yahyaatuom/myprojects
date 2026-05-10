@@ -5,3 +5,5 @@ print(prob)
 
 diceThrow = randrange(1,7)
 print(diceThrow)
+
+print(random())

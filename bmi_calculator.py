@@ -1,3 +1,4 @@
+# BMI Calculator
 weight = float(input(" enter your Weight in kg:"))
 height = float(input("enter your height in meters:"))
 

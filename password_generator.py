@@ -3,9 +3,9 @@ import string
 
 length = int(input("Enter the desired length of the password:"))
 
-letters = string.ascii_letters
-digits = string.digits
-symbols = string.punctuation
+letters = string.ascii_letters # includes both uppercase and lowercase letters
+digits = string.digits         #includes digits from 0 to 9
+symbols = string.punctuation   # includes special characters like !, @, #, $, etc.
 
 all_chars = letters + digits + symbols
 

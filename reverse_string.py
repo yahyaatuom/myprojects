@@ -1,4 +1,8 @@
 def reverse_string(s):
-    print(s[::-1])
+    reversed_text = ""
+    for char in s:
+        reversed_text = char + reversed_text
+    return reversed_text
 
-reverse_string(input("Enter a string: "))
+result = reverse_string("Hello, World!")
+print(result)

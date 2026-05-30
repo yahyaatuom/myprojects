@@ -1,4 +1,4 @@
 import numpy as np
 import inspect
 
-print(inspect.getsource(np.histogram))
+print(inspect.getsource(np))

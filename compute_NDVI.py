@@ -1,5 +1,5 @@
 #Compute NDVI - NumPy operates element-wise on entire arrays
-#np.where avoids division by zero
+#np.where makes sure to avoid division by zero
 import numpy as np
 import matplotlib.pyplot as plt
 

@@ -23,13 +23,13 @@ def cm_to_inch(x):
     if x <= 0:
         print("Height cannot be 0 or a negative value")
     else:
-        return x * 2.54
+        return x / 2.54
     
 def inch_to_cm(x):
     if x <= 0:
         print("Height cannot be 0 or a negative value")
     else:
-        return x/2.54
+        return x*2.54
     
 def cm_to_ft(x):
     if x <= 0:
@@ -45,7 +45,6 @@ def ft_to_cm(x):
     else:
         return x * 30.48
     
-height = input("Enter the user's height:")
 
 conversion_router = {
     ('ft', 'cm'): ft_to_cm,
@@ -58,7 +57,7 @@ conversion_router = {
 
 def get_unit_choice(text):
     """The user would enter the unit of their choice and also mention the unit they'd like their height to be converted to"""
-    valid_units = ['ft','cm','inch']
+    valid_units = ['ft','cm','inch','feet']
     while True:
         choice = input(text).strip().lower()
         if choice in valid_units:

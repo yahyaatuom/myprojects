@@ -61,7 +61,7 @@ def get_unit_choice(text):
     valid_units = ['ft','cm','inch']
     while True:
         choice = input(text).strip().lower()
-        if choice in valid_units():
+        if choice in valid_units:
             return choice
         else:
             print ("Invalid choice")

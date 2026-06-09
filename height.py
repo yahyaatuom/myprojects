@@ -1,4 +1,4 @@
-# this program would conver the following units to other units
+# this program would convert the following units to other units
 # 1ft = 30.48cm
 #1 inch = 2.54cm
 #1ft = 12 inches

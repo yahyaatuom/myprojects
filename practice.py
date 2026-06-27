@@ -8,3 +8,4 @@ plt.hist(v, bins=50, density=True)
 plt.plot(.5 * (bins[1:] + bins[:-1]), n) 
 
 plt.show()
+#done

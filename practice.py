@@ -1,12 +1,29 @@
 import numpy as np
+from numpy import newaxis
 
-B=np.arange(3)
-print(B)
 
-print(np.exp(B))
+rg = np.random.default_rng()
 
-print(np.sqrt(B))
+a = np.array([[0,1,2,3],
+              [4,5,6,7],
+              [8,9,10,11]])
 
-C = np.array([2., -1., 4.])
+# b = a
+# print(b is a)
 
-print(np.add(B,C))
+# def f(x):
+#     print(id(x))
+
+# print(id(a))
+# f(a)
+
+c=a.view()
+# print(c)
+# print(c is a)
+
+# print(c.base is a) # c is a view of the data owned by a
+
+# print(c.flags.owndata)
+
+c = c.reshape((2,6)) # this will have no effect on a's shape
+print(a.shape)

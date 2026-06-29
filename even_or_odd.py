@@ -1,3 +1,4 @@
+#fnids if the number entered is an odd or even integer
 def even_or_odd(n):
     if n%2 == 0:
         print("Even")

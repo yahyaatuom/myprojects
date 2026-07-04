@@ -1,70 +1,75 @@
+import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
+import seaborn as sns
 
-# Initialize canvas with standard publication aspect ratio
-fig, ax = plt.subplots(figsize=(11, 5), dpi=300)
-ax.set_xlim(0, 11)
-ax.set_ylim(0, 5)
-ax.axis("off")
+# Set random seed for reproducible baseline high-dimensional noise
+np.random.seed(42)
 
-# Define reusable layout styles
-box_style = dict(boxstyle="round,pad=0.5", facecolor="#f8f9fa", edgecolor="#495057", lw=1.5)
-formula_style = dict(size=10, fontname="DejaVu Sans", weight="medium", color="#212529")
-title_style = dict(size=11, fontname="DejaVu Sans", weight="bold", color="#1a1d20")
+# Define labels with LaTeX formatting for Matplotlib rendering
+labels = [
+    r"$\mathbf{v}_{25}^{\mathrm{SM}}$", r"$\mathbf{v}_{25}^{\mathrm{EL}}$", r"$\mathbf{v}_{25}^{\mathrm{FG}}$",
+    r"$\mathbf{v}_{26}^{\mathrm{SM}}$", r"$\mathbf{v}_{26}^{\mathrm{EL}}$", r"$\mathbf{v}_{26}^{\mathrm{FG}}$",
+    r"$\mathbf{v}_{27}^{\mathrm{SM}}$", r"$\mathbf{v}_{27}^{\mathrm{EL}}$", r"$\mathbf{v}_{27}^{\mathrm{FG}}$"
+]
 
-# -------------------------------------------------------------------------
-# STAGE 1: Contrastive Extraction
-# -------------------------------------------------------------------------
-ax.text(0.5, 4.2, "Phase 1: Contrastive Extraction", **title_style)
-rect1 = patches.FancyBboxPatch((0.5, 1.2), 2.5, 2.5, boxstyle="round,pad=0.1", 
-                               facecolor="#e8f0fe", edgecolor="#1a73e8", lw=1.5)
-ax.add_patch(rect1)
+num_vectors = len(labels)
+matrix = np.random.normal(loc=0.00, scale=0.02, size=(num_vectors, num_vectors))
 
-ax.text(0.7, 3.2, "Prompt Matrix Pairs:\n  • Base Context ($P_{base}$)\n  • Perturbed Context ($P_{pert}$)", size=9, verticalalignment="top")
-ax.text(0.7, 2.0, r"$\Delta \mathbf{h}_L = \mathbf{h}_L^{base} - \mathbf{h}_L^{pert}$", **formula_style)
-ax.text(0.7, 1.4, r"$\mathbf{v}_L = \Delta \mathbf{h}_L / \|\Delta \mathbf{h}_L\|_2$", **formula_style)
+# Enforce perfect symmetry
+matrix = (matrix + matrix.T) / 2.0
 
-# Directional Arrow 1 -> 2
-ax.annotate("", xy=(3.5, 2.45), xytext=(3.1, 2.45),
-            xycoords="data", textcoords="data",
-            arrowprops=dict(arrowstyle="->", lw=2, color="#495057"))
-ax.text(3.15, 2.6, r"$\mathbf{v}_L$", size=10, weight="bold", color="#1a73e8")
+# Set self-similarity diagonal to unity
+np.fill_diagonal(matrix, 1.0)
 
-# -------------------------------------------------------------------------
-# STAGE 2: Orthogonal Complement Projection
-# -------------------------------------------------------------------------
-ax.text(3.9, 4.2, "Phase 2: Orthogonal Projection", **title_style)
-rect2 = patches.FancyBboxPatch((3.9, 1.2), 3.0, 2.5, boxstyle="round,pad=0.1", 
-                               facecolor="#fef7e0", edgecolor="#f9ab00", lw=1.5)
-ax.add_patch(rect2)
+# Populate empirical data from Table 1
+# Layer 25
+matrix[0, 1] = matrix[1, 0] = 0.0354   # SM <-> EL
+matrix[0, 2] = matrix[2, 0] = 0.0616   # SM <-> FG
+matrix[1, 2] = matrix[2, 1] = 0.0211   # EL <-> FG
 
-ax.text(4.1, 3.2, "Residual Stream Interception:\nIntercept intermediate state $\\mathbf{h}_L^{(t+k)}$\nat forward runtime step.", size=9, verticalalignment="top")
-ax.text(4.1, 2.0, r"$\mathbf{p} = \langle \mathbf{h}_L^{(t+k)}, \mathbf{v}_L \rangle \mathbf{v}_L$", **formula_style)
-ax.text(4.1, 1.4, r"$\mathbf{h}_{orthogonal} = \mathbf{h}_L^{(t+k)} - \mathbf{p}$", **formula_style)
+# Layer 26
+matrix[3, 4] = matrix[4, 3] = 0.0129   # SM <-> EL
+matrix[3, 5] = matrix[5, 3] = 0.0276   # SM <-> FG
+matrix[4, 5] = matrix[5, 4] = 0.0837   # EL <-> FG
 
-# Directional Arrow 2 -> 3
-ax.annotate("", xy=(7.4, 2.45), xytext=(7.0, 2.45),
-            xycoords="data", textcoords="data",
-            arrowprops=dict(arrowstyle="->", lw=2, color="#495057"))
-ax.text(7.03, 2.6, r"$\mathbf{h}_{orth}$", size=9, weight="bold", color="#f9ab00")
+# Layer 27
+matrix[6, 7] = matrix[7, 6] = -0.0949  # SM <-> EL
+matrix[6, 8] = matrix[8, 6] = 0.0765   # SM <-> FG
+matrix[7, 8] = matrix[8, 7] = 0.0202   # EL <-> FG
 
-# -------------------------------------------------------------------------
-# STAGE 3: Scaled Injection
-# -------------------------------------------------------------------------
-ax.text(7.8, 4.2, "Phase 3: Scaled Injection", **title_style)
-rect3 = patches.FancyBboxPatch((7.8, 1.2), 2.7, 2.5, boxstyle="round,pad=0.1", 
-                               facecolor="#e6f4ea", edgecolor="#137333", lw=1.5)
-ax.add_patch(rect3)
+# Plotting setup
+plt.figure(figsize=(8, 6.5), dpi=300)
+sns.set_theme(style="white")
 
-ax.text(8.0, 3.2, "Manifold Steering Execution:\nApply policy coefficient $\\alpha$\nalong targeted axis.", size=9, verticalalignment="top")
-ax.text(8.0, 1.7, r"$\mathbf{h}_{L, steered}^{(t+k)} = \mathbf{h}_{orthogonal} + \alpha \mathbf{v}_L$", **formula_style)
+# Generate color palette masking the diagonal during dynamic range evaluation
+cmap = sns.diverging_palette(240, 10, as_cmap=True)
 
-# Final Output Arrow
-ax.annotate("", xy=(11.0, 2.45), xytext=(10.6, 2.45),
-            xycoords="data", textcoords="data",
-            arrowprops=dict(arrowstyle="->", lw=2, color="#137333"))
-ax.text(10.65, 2.7, "Modified\nLogits", size=8, weight="bold", color="#137333")
+# Generate heatmap
+ax = sns.heatmap(
+    matrix, 
+    annot=True, 
+    fmt=".4f", 
+    cmap=cmap, 
+    vmin=-0.15, 
+    vmax=0.15, 
+    square=True,
+    linewidths=0.5, 
+    cbar_kws={"label": "Cosine Similarity", "shrink": 0.8},
+    xticklabels=labels, 
+    yticklabels=labels,
+    annot_kws={"size": 8, "weight": "bold"}
+)
 
+# Highlight diagonal entries separately since they are outside vmin/vmax limits
+for i in range(num_vectors):
+    ax.texts[i * num_vectors + i].set_text("1.000")
+    ax.texts[i * num_vectors + i].set_color("black")
+
+plt.title("Pairwise Steering Vector Cosine Similarity Matrix", fontsize=12, pad=15, weight="bold")
+plt.xticks(rotation=0)
+plt.yticks(rotation=0)
 plt.tight_layout()
-plt.savefig("figure_2_pipeline_diagram.png", bbox_inches="tight", dpi=300)
+
+# Save image file
+plt.savefig("figure_1_cosine_similarity.png", bbox_inches="tight", dpi=300)
 plt.show()

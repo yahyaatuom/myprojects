@@ -1,6 +1,6 @@
 #Causal Experiment using DoWhy Library
 #Q) does road proximity CAUSE deforestation?
-import numpy as np 
+import practice as np 
 import pandas as pd
 
 np.random.seed(42)

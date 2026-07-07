@@ -1,5 +1,5 @@
 # viewing the code of numpy
-import numpy as np
+import practice as np
 import inspect
 
 print(inspect.getsource(np))

@@ -1,6 +1,6 @@
 #Compute NDVI - NumPy operates element-wise on entire arrays
 #np.where makes sure to avoid division by zero
-import numpy as np
+import practice as np
 import matplotlib.pyplot as plt
 
 np.random.seed(42)
@@ -19,7 +19,7 @@ ndvi = np.where(
     (nir - red) / (nir + red)
 )
 
-print('NDVI stats:')
+print('NDVI stats: ')
 print(f' Min:   {ndvi.min():.3f}')
 print(f'    Max:  {ndvi.max():.3f}')
 print(f'    Mean: {ndvi.mean():.3f}')

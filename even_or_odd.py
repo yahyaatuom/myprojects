@@ -1,8 +1,5 @@
-#fnids if the number entered is an odd or even integer
-def even_or_odd(n):
-    if n%2 == 0:
-        print("Even")
+def odd_or_even(n):
+    if n% 2==0:
+        return "Even"
     else:
-        print("Odd")
-
-even_or_odd(int(input("Enter a number: ")))
+        return "Odd"

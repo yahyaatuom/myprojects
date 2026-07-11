@@ -1,3 +1,6 @@
-nums = [3,6,2,4,6,8]
-num = min(nums)
-print(num)
+#defining a function that would find the minimum of numbers
+def find_min(numbers):
+    return min(numbers)
+
+x= find_min(2,4,7,3,8,1)
+print(x)

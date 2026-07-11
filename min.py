@@ -1,6 +1,10 @@
 #defining a function that would find the minimum of numbers
 def find_min(numbers):
-    return min(numbers)
+    min_num = numbers[0]
+    for num in numbers:
+        if num < min_num:
+            min_num = num
+    return min_num
 
-x= find_min(2,4,7,3,8,1)
-print(x)
+numbers = [int(x) for x in input("nums: ").split()]
+print(find_min(numbers))

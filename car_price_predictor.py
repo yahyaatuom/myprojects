@@ -6,3 +6,5 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import SGDRegressor
 from sklearn import metrics
 
+data = pd.read_csv('car_dataset_2.csv')
+

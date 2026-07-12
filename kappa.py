@@ -1,5 +1,3 @@
-# a code in which the user enters values and the code calculates the kappa value
-
 from sklearn.metrics import cohen_kappa_score
 
 def get_kappa():

@@ -8,3 +8,12 @@ from sklearn import metrics
 
 data = pd.read_csv('car_dataset_2.csv')
 
+data.head()
+
+data.info()
+data.isnull().sum()
+
+p_data = data.dropna()
+p_data.isnull().sum()
+
+p_data.info()

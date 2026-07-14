@@ -51,7 +51,7 @@ class Library:
     #---- Book Management ----
 
     def add_book(self, book: Book):
-        self._books[book.book_id] = book
+        self._books[book.id] = book
 
     def get_book(self, id):
         return self._books.get(id)
@@ -91,3 +91,23 @@ class Library:
         
         book.return_book()
         user.return_book(book)
+
+
+
+if __name__ == "__main__":
+    lib = Library()
+
+
+    b1 = Book(1, "1984", "Yahya Khan")
+    b2 = Book(2, "Clean Code", "Jamal Jackson")
+
+    lib.add_book(b1)
+    lib.add_book(b2)
+
+    u1 = User(101, "ayesha")
+    lib.add_user(u1)
+
+    lib.issue_book(1, 101)
+
+    print(lib.list_books())
+    print(u1.list_books())

@@ -21,7 +21,7 @@ class Book:
         return not self._is_issued
 
     def __repr__(self):
-        status = "Available" if self._is_available() else "Issued"   
+        status = "Available" if self.is_available() else "Issued"   
         return f"[{self.id}] {self.title} by {self.author} ({status})"
     
 
@@ -111,3 +111,5 @@ if __name__ == "__main__":
 
     print(lib.list_books())
     print(u1.list_books())
+
+    print(u1.name)

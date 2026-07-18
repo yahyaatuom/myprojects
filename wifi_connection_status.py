@@ -1,5 +1,4 @@
 #finding the wifi connection status in python
-
 import subprocess
 
 status = subprocess.check_output(

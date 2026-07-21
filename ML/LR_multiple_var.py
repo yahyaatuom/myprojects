@@ -14,3 +14,8 @@ print(median_bed)
 
 df.bedrooms = df.bedrooms.fillna(median_bed)
 print(df)
+
+reg = linear_model.LinearRegression()
+reg.fit(df[['area','bedrooms','age']],df.price)
+
+print(reg.coef_)

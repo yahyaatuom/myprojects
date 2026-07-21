@@ -1,0 +1,1 @@
+#Simple Linear Regression model that'd predict home prices in NJ, USA

@@ -8,7 +8,7 @@ from sklearn import linear_model
 df = pd.read_csv("ML/canada_per_capita_income.csv")
 
 reg = linear_model.LinearRegression()
-reg.fit(df[["year"]], df["per capita income (US$)"])
+reg.fit(df[["year"]], df[["per capita income (US$)"]])
 
-predicted_income = reg.predict([[2020]])
-print(predicted_income)
+a = reg.predict([[2026]])
+print(a)

@@ -16,3 +16,5 @@ plt.ylabel("Price(PKR)")
 
 reg = linear_model.LinearRegression()
 reg.fit(df[["area"]], df.price)
+
+print(reg.predict([[4200]]))

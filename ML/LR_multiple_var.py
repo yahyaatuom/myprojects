@@ -5,4 +5,12 @@ import numpy as np
 from sklearn import linear_model
 
 df = pd.read_csv('ML/house_var.csv')
+#print(df)
+
+import math
+median_bed = math.floor(df.bedrooms.median())
+print(median_bed)
+
+
+df.bedrooms = df.bedrooms.fillna(median_bed)
 print(df)

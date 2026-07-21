@@ -23,3 +23,8 @@ print(reg.predict([[50000]]))
 #print(reg.intercept_)
 
 print(7481.08108108*5000+-6867837.837837841)
+
+d = pd.read_csv("area.csv")
+d.head(3)
+
+print(reg.predict(d))

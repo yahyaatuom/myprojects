@@ -9,13 +9,17 @@ df = pd.read_csv('ML/house_var.csv')
 
 import math
 median_bed = math.floor(df.bedrooms.median())
-print(median_bed)
+#print(median_bed)
 
 
 df.bedrooms = df.bedrooms.fillna(median_bed)
-print(df)
+#print(df)
 
 reg = linear_model.LinearRegression()
 reg.fit(df[['area','bedrooms','age']],df.price)
 
 print(reg.coef_)
+print(reg.intercept_)
+
+b=reg.predict([[7100,8,3]])
+print(b)

@@ -6,7 +6,13 @@ import matplotlib.pyplot as plt
 from sklearn import linear_model  # The most important library here
 
 df = pd.read_csv("houses.csv", sep="\t")
-print(df)
+#print(df)
 
-plt.scatter(df.area, df.price)
-plt.show()
+plt.scatter(df.area, df.price, color = "red", marker = "+")
+plt.xlabel("Area (Sq.Ft)")
+plt.ylabel("Price(PKR)")
+
+#Training the Model
+
+reg = linear_model.LinearRegression()
+reg.fit(df[["area"]], df.price)

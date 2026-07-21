@@ -29,4 +29,4 @@ d.head(3)
 
 p = reg.predict(d)
 d['prices'] = p
-d.to_csv('prediction.csv')
+d.to_csv('prediction.csv',index=False)

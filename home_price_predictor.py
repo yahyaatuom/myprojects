@@ -1,4 +1,4 @@
-#Simple Linear Regression model that'd predict home prices in NJ, USA
+#Simple Linear Regression model that'd predict home prices in BatKhela, KPK, Pakistan
 
 import pandas as pd
 import numpy as np

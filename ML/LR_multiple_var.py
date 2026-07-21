@@ -1,0 +1,1 @@
+# Writing a program, again optimizing the Linear Regression Algorithm in order to predict prices of houses(New Jersey, USA), this time using more than one variable

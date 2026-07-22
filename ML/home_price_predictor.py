@@ -38,3 +38,5 @@ plt.plot(df.area, reg.predict(df[['area']]), color = 'blue')
 import pickle
 with open('model_pickle','wb') as f:
     pickle.dump(reg, f)
+
+print("Success! Model trained and saved as model_pickle.")

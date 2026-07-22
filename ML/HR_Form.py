@@ -8,10 +8,13 @@ from word2number import w2n
 df = pd.read_csv("ML/hiring.csv")
 #print(df)
 
-import math
 
 df.experience = df.experience.fillna("zero")
 #print(df)
 
 df.experience = df.experience.apply(w2n.word_to_num)
-print(df)
+#print(df)
+
+import math
+median_test = math.floor(df['test_score(out of 10)'].mean())
+print(median_test)

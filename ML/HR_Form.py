@@ -17,4 +17,7 @@ df.experience = df.experience.apply(w2n.word_to_num)
 
 import math
 median_test = math.floor(df['test_score(out of 10)'].mean())
-print(median_test)
+#print(median_test)
+
+df['test_score(out of 10)'] = df['test_score(out of 10)'].fillna(median_test)
+print(df)

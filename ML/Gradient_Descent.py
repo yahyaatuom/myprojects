@@ -17,9 +17,9 @@ import numpy as np
 
 def gradient_descent(x,y):
     m_curr = b_curr =0
-    iterations = 10000
+    iterations = 10
     n = len(x)
-    learning_rate = 0.001
+    learning_rate = 0.1
 
     for i in range(iterations):
         y_predicted = m_curr *x +b_curr

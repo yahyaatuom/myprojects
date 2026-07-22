@@ -1,0 +1,1 @@
+#Training a model for the HR Dept. Using LR Algorithm with multiple variables, to predict salary for an emp based on some factors

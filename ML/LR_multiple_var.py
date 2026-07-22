@@ -19,7 +19,9 @@ reg = linear_model.LinearRegression()
 reg.fit(df[['area','bedrooms','age']],df.price)
 
 print(reg.coef_)
-print(reg.intercept_)
+#print(reg.intercept_)
 
 b=reg.predict([[7100,8,3]])
 print(b)
+
+print(137.25*7100+-26025.*8+-6825*3+reg.intercept_)

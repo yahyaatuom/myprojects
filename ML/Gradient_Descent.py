@@ -7,3 +7,4 @@
 
 # 2 approaches 1. fixed steps, 2. steps that follow the curvature
 #approach 2 is better, to implement we have to calculate slope at each step
+# this slope is nothing but derivative of b wrt cost function

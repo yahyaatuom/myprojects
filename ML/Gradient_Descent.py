@@ -8,3 +8,28 @@
 # 2 approaches 1. fixed steps, 2. steps that follow the curvature
 #approach 2 is better, to implement we have to calculate slope at each step
 # this slope is nothing but derivative of b wrt cost function
+#Since we have 2 variables here we take partial derivatives
+
+
+#implementing Gradient Descent
+
+import numpy as np
+
+def gradient_descent(x,y):
+    m_curr = b_curr =0
+    iterations = 1000
+    n = len(x)
+    learning_rate = 0.001
+
+    for i in range(iterations):
+        y_predicted = m_curr *x +b_curr
+        md = -(2/n)*sum(x*y-y_predicted)
+        bd = -(2/n)*sum(y-y_predicted)
+        m_curr = m_curr - learning_rate*md
+        b_curr = b_curr - learning_rate * bd
+        print("m {}, b {}, iteration". format(m_curr,b_curr,i))
+
+x = np.array([1,2,3,4,5])
+y=np.array([5,7,9,11,13])
+
+gradient_descent(x,y)

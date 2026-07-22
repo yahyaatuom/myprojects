@@ -4,5 +4,5 @@
 #1. Training  the Model, using the training dataset
 # 2. asking the trained model some questions
 
-# Often our Datasets are HUGE!!!!! reuiring GB's of data, for that we load already trained model
+# Often our Datasets are HUGE!!!!! requiring GB's of data, for that we load already trained model
  

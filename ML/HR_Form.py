@@ -21,3 +21,9 @@ median_test = math.floor(df['test_score(out of 10)'].mean())
 
 df['test_score(out of 10)'] = df['test_score(out of 10)'].fillna(median_test)
 print(df)
+
+reg = linear_model.LinearRegression()
+reg.fit(df[['experience','test_score(out of 10)','interview_score(out of 10)']], df[['salary($)']])
+
+a=reg.predict([[12,9,8]])
+print(a)

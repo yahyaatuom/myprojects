@@ -11,4 +11,7 @@ df = pd.read_csv("ML/hiring.csv")
 import math
 
 df.experience = df.experience.fillna("zero")
+#print(df)
+
+df.experience = df.experience.apply(w2n.word_to_num)
 print(df)

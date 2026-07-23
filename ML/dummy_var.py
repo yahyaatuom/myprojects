@@ -27,6 +27,9 @@ X = ohe.fit_transform(X)
 #print(X)
 
 X = X[:,1:]
-print(X)
+#print(X)
 
 model.fit(X,y)
+
+d=model.predict([[1,0,2800]])
+print(d)

@@ -23,5 +23,12 @@ y = final.price
 
 model.fit(x,y)
 
-h=model.predict([[2000,0,0]])
-print(h)
+# h=model.predict([[2000,0,0]])
+# print(h)
+
+# e = model.score(x,y)
+# print(e)
+
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+

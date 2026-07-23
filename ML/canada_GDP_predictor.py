@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn import linear_model
-
+import joblib
 # Load dataset
 df = pd.read_csv("ML/canada_per_capita_income.csv")
 
@@ -12,3 +12,7 @@ reg.fit(df[["year"]], df[["per capita income (US$)"]])
 
 a = reg.predict([[2026]])
 print(a)
+
+from sklearn.externals import joblib
+
+joblib.dump(reg,'model_joblib')

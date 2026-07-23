@@ -1,16 +1,25 @@
-# This Program will train a model using the records in csv optimizing the Linear Regression Algorithm to Predict the Per Capita Income of Canada in The Year 2020
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn import linear_model
 import joblib
-# Load dataset
+import os
+
+print("Working directory:", os.getcwd())
+
 df = pd.read_csv("ML/canada_per_capita_income.csv")
 
 reg = linear_model.LinearRegression()
 reg.fit(df[["year"]], df[["per capita income (US$)"]])
 
-a = reg.predict([[2026]])
-print(a)
+# Predict
+print(reg.predict(pd.DataFrame([[2026]], columns=["year"])))
 
-joblib.dump(reg,'model_joblib')
+# Save model
+joblib.dump(reg, "ML/model_joblib.pkl")
+
+# Load model
+b = joblib.load("ML/model_joblib.pkl")
+
+# Predict again
+print(b.predict(pd.DataFrame([[2027]], columns=["year"])))

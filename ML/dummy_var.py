@@ -40,3 +40,6 @@ print(X)
 
 Y = dfle.values
 print(Y)
+
+from sklearn.preprocessing import OneHotEncoder
+ohe = OneHotEncoder()

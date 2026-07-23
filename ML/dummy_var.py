@@ -23,5 +23,8 @@ X = dfle[['town', 'area']].values
 Y = dfle[['town', 'area', 'price']].values
 
 ohe = OneHotEncoder(sparse_output=False)
-X_encoded = ohe.fit_transform(X)
-print(X_encoded)
+X = ohe.fit_transform(X)
+#print(X)
+
+X = X[:,1:]
+print(X)

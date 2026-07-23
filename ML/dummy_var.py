@@ -35,5 +35,8 @@ le = LabelEncoder()
 dfle = df
 dfle.town = le.fit_transform(dfle.town)
 
-X = df[['town','area']].values
+X = dfle[['town','area']].values
 print(X)
+
+Y = dfle.values
+print(Y)

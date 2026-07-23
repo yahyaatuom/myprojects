@@ -43,3 +43,6 @@ print(Y)
 
 from sklearn.preprocessing import OneHotEncoder
 ohe = OneHotEncoder()
+
+#This assumes that X are cateforical variables
+ohe.fit_transform(X)

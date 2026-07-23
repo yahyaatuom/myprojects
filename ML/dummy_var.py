@@ -13,3 +13,7 @@ merged = pd.concat([df,dummies],axis='columns')
 
 final = merged.drop(['town','west windsor'], axis='columns')
 print(final)
+
+
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()

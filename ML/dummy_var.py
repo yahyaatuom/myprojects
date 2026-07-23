@@ -28,3 +28,5 @@ X = ohe.fit_transform(X)
 
 X = X[:,1:]
 print(X)
+
+model.fit(X,y)

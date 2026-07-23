@@ -2,5 +2,5 @@
 
 import pandas as pd
 
-df = pd.read_csv("ML/houseprices.csv")
+df = pd.read_csv("ML/homeprices.csv")
 print(df)

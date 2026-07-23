@@ -9,4 +9,7 @@ dummies = pd.get_dummies(df.town)
 #print(dummies)
 
 merged = pd.concat([df,dummies],axis='columns')
-print(merged)
+#print(merged)
+
+final = merged.drop(['town','west windsor'], axis='columns')
+print(final)

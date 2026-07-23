@@ -12,7 +12,7 @@ merged = pd.concat([df,dummies],axis='columns')
 #print(merged)
 
 final = merged.drop(['town','west windsor'], axis='columns')
-print(final)
+#print(final)
 
 
 from sklearn.linear_model import LinearRegression
@@ -20,3 +20,5 @@ model = LinearRegression()
 
 x = final.drop('price',axis='columns')
 y = final.price
+
+model.fit(x,y)

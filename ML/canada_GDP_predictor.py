@@ -13,6 +13,4 @@ reg.fit(df[["year"]], df[["per capita income (US$)"]])
 a = reg.predict([[2026]])
 print(a)
 
-from sklearn.externals import joblib
-
 joblib.dump(reg,'model_joblib')

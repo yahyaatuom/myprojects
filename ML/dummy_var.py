@@ -22,3 +22,6 @@ x = final.drop('price',axis='columns')
 y = final.price
 
 model.fit(x,y)
+
+h=model.predict([[2000,0,0]])
+print(h)

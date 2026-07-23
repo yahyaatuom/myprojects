@@ -17,3 +17,6 @@ print(final)
 
 from sklearn.linear_model import LinearRegression
 model = LinearRegression()
+
+x = final.drop('price',axis='columns')
+y = final.price

@@ -36,13 +36,16 @@ dfle = df
 dfle.town = le.fit_transform(dfle.town)
 
 X = dfle[['town','area']].values
-print(X)
+#print(X)
 
 Y = dfle.values
-print(Y)
+#print(Y)
 
 from sklearn.preprocessing import OneHotEncoder
-ohe = OneHotEncoder()
+ohe = OneHotEncoder(sparse_output=False)
 
 #This assumes that X are cateforical variables
-ohe.fit_transform(X)
+# ohe.fit_transform(X)
+
+X_encoded = ohe.fit_transform(X)
+print(X_encoded)

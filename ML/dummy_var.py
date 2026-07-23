@@ -3,6 +3,7 @@
 import pandas as pd
 
 df = pd.read_csv("ML/homeprices.csv")
-print(df)
+# print(df)
 
-pd.get_dummies(df.town)
+dummies = pd.get_dummies(df.town)
+print(dummies)

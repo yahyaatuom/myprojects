@@ -23,3 +23,6 @@ b = joblib.load("ML/model_joblib.pkl")
 
 # Predict again
 print(b.predict(pd.DataFrame([[2027]], columns=["year"])))
+
+
+print(b.coef_)

@@ -40,3 +40,9 @@ with open('model_pickle','wb') as f:
     pickle.dump(reg, f)
 
 print("Success! Model trained and saved as model_pickle.")
+
+with open('model_pickle','rb') as f:
+    mp = pickle.load(f)
+
+a = mp.predict([[4000]])
+print(a)

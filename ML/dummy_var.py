@@ -32,3 +32,8 @@ model.fit(x,y)
 from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 
+dfle = df
+dfle.town = le.fit_transform(dfle.town)
+
+X = df[['town','area']].values
+print(X)

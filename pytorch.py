@@ -52,5 +52,11 @@ w = torch.tensor([[1.0],[2.0]],requires_grad=True) #Parameter
 # print(f"average per assignment: {average_per_assg}")
 # print(f"average per student: {avg_per_std}")
 
-x = torch.arange(12).reshape(3,4)
-print(x)
+# x = torch.arange(12).reshape(3,4)
+# print(x)
+
+scores = torch.tensor([
+    [10,0,5,20,1],
+    [1,30,2,5,0]
+])
+print(torch.argmax(scores,dim=1))

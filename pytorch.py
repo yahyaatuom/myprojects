@@ -18,7 +18,13 @@ import torch
 # print(f'Template Tensor:\n {template}')
 # print(f'Randn_like Tensor:\n {rand_like}')
 
-tensor = torch.randn(2,3)
-print(f"shape: {tensor.shape}")
-print(f"device: {tensor.device}")
-print(f"dtype: {tensor.dtype}")
+# tensor = torch.randn(2,3)
+# print(f"shape: {tensor.shape}")
+# print(f"device: {tensor.device}")
+# print(f"dtype: {tensor.dtype}")
+
+x_data = torch.tensor([[1.,2.],[3.,4.]])
+w = torch.tensor([[1.0],[2.0]],requires_grad=True)
+
+print(f'Data tensor requires_grad: {x_data.requires_grad}')
+print(f'Parameter tensor requires_grad: {w.requires_grad}')

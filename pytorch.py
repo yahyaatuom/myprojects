@@ -23,8 +23,16 @@ import torch
 # print(f"device: {tensor.device}")
 # print(f"dtype: {tensor.dtype}")
 
-x_data = torch.tensor([[1.,2.],[3.,4.]])
-w = torch.tensor([[1.0],[2.0]],requires_grad=True)
+x_data = torch.tensor([[1.,2.],[3.,4.]]) #data
+w = torch.tensor([[1.0],[2.0]],requires_grad=True) #Parameter
 
-print(f'Data tensor requires_grad: {x_data.requires_grad}')
-print(f'Parameter tensor requires_grad: {w.requires_grad}')
+# print(f'Data tensor requires_grad: {x_data.requires_grad}')
+# print(f'Parameter tensor requires_grad: {w.requires_grad}')
+
+a = torch.tensor(2.0,requires_grad=True)
+b = torch.tensor(3.0,requires_grad=True)
+x = torch.tensor(4.0,requires_grad=True)
+
+y = a+b
+z = x*y
+print(z)

@@ -35,4 +35,7 @@ x = torch.tensor(4.0,requires_grad=True)
 
 y = a+b
 z = x*y
-print(z)
+
+print(f"grad_fn for z: {z.grad_fn}")
+print(f"grad_fn for y: {y.grad_fn}")
+print(f"grad_fn for a: {a.grad_fn}")

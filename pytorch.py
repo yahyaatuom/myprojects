@@ -40,8 +40,17 @@ w = torch.tensor([[1.0],[2.0]],requires_grad=True) #Parameter
 # print(f"grad_fn for y: {y.grad_fn}")
 # print(f"grad_fn for a: {a.grad_fn}")
 
-a = torch.tensor([[1,2,3],[4,5,6]])
-b = torch.tensor([[7,8],[9,10],[11,12]])
+# a = torch.tensor([[1,2,3],[4,5,6]])
+# b = torch.tensor([[7,8],[9,10],[11,12]])
 
-element_wise_product = a@b
-print(element_wise_product)
+# element_wise_product = a@b
+# print(element_wise_product)
+
+# scores = torch.tensor([[10.,20.,30.],[5.,10.,15.]])
+# average_per_assg = scores.mean(dim=0)
+# avg_per_std=scores.mean(dim=1)
+# print(f"average per assignment: {average_per_assg}")
+# print(f"average per student: {avg_per_std}")
+
+x = torch.arange(12).reshape(3,4)
+print(x)

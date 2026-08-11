@@ -12,8 +12,13 @@ import torch
 
 #print(f'Random Tensor:\n {random}')
 
-template = torch.tensor([[1,2],[3,4]])
-rand_like = torch.randn_like(template,dtype=torch.float)
+# template = torch.tensor([[1,2],[3,4]])
+# rand_like = torch.randn_like(template,dtype=torch.float)
 
-print(f'Template Tensor:\n {template}')
-print(f'Randn_like Tensor:\n {rand_like}')
+# print(f'Template Tensor:\n {template}')
+# print(f'Randn_like Tensor:\n {rand_like}')
+
+tensor = torch.randn(2,3)
+print(f"shape: {tensor.shape}")
+print(f"device: {tensor.device}")
+print(f"dtype: {tensor.dtype}")

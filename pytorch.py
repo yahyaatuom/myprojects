@@ -1,8 +1,20 @@
-import torch
+import torch.nn as nn
 
-soft = torch.nn.Softmax(dim=-1)
-logits = torch.tensor([[1.0,3.0,0.5,1.5],[-1.0,2.0,1.0,0.0]])
-probabilities = soft(logits)
+class LinearRegressionModel(nn.Module):
+    def __init__(self,in_features,out_features):
+        super().__init__()
+        self.linear_layer = nn.Linear(in_features,out_features)
 
-print(f'Output Probabilities:\n   {probabilities}\n')
-print(f'Sum of probabilites for item 1: {probabilities[0].sum()}')
+    def forward(self,x):
+        return self.linear_layer(x)
+
+model = LinearRegressionModel(in_features=1,out_features=1)
+
+# print("Model Architecture:")
+# print(model)
+
+import torch.optim as optim
+
+lr=0.01
+optimizer = optim.Adam(model.parameters(),lr)
+loss_fn=nn.MSELoss()

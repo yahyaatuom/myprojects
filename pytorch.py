@@ -28,3 +28,5 @@ loss = squared_error.mean()
 
 # print(f'Loss (our single scorecard number): {loss}')
 loss.backward()
+print(W.grad)
+print(b.grad)

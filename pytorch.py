@@ -28,5 +28,21 @@ loss = squared_error.mean()
 
 # print(f'Loss (our single scorecard number): {loss}')
 loss.backward()
-print(W.grad)
-print(b.grad)
+print(f'W.grad: {W.grad}\n')
+print(f"b.grad: {b.grad}") 
+
+
+lr,epochs = 0.01,100
+
+W,b = torch.randn(1,1,requires_grad=True),torch.randn(1,requires_grad=True)
+
+for epoch in range(epochs):
+    y_hat = X@W+b
+    loss = torch.mean((y_hat-y_true)**2)
+    loss.backward()
+    with torch.no_grad():
+        W-=lr*W.grad;b -=lr*b.grad
+
+
+W_new = W - lr * W.grad
+b_new = b - lr * b.grad

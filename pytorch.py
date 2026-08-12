@@ -55,8 +55,18 @@ w = torch.tensor([[1.0],[2.0]],requires_grad=True) #Parameter
 # x = torch.arange(12).reshape(3,4)
 # print(x)
 
-scores = torch.tensor([
-    [10,0,5,20,1],
-    [1,30,2,5,0]
+# scores = torch.tensor([
+#     [10,0,5,20,1],
+#     [1,30,2,5,0]
+# ])
+# print(torch.argmax(scores,dim=1))
+
+data = torch.tensor([
+    [10,11,12,13,],
+    [20,21,22,23],
+    [30,31,32,33]
 ])
-print(torch.argmax(scores,dim=1))
+
+indices_to_select = torch.tensor([[2],[0],[3]])
+selected_values = torch.gather(data, dim=1,index=indices_to_select)
+print(selected_values)

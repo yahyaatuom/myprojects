@@ -19,3 +19,6 @@ mse = mean_squared_error(y_test,predictions)
 print(f"Predicted scores:  {predictions}")
 print(f"Actual Score: ", y_test)
 print(f"Mean Squared Error: {mse}")
+
+score = model.score(X_test,y_test)
+print(f"Model prediction accuracy: {score}")

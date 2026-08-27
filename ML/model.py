@@ -9,7 +9,7 @@ energy_scores = [32,38,41,45,47,49,58,67,78,90]
 X = [[hours] for hours in hours_slept]
 y = energy_scores
 
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2)
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
 
 model = LinearRegression()
 model.fit(X_train,y_train)
@@ -22,3 +22,11 @@ print(f"Mean Squared Error: {mse}")
 
 score = model.score(X_test,y_test)
 print(f"Model prediction accuracy: {score}")
+
+plt.scatter(X,y,color="blue",label= "Real data")
+plt.plot(X, model.predict(X),color = "green", label= "Model Prediction")
+plt.xlabel("Hours Slept")
+plt.ylabel("Energy scores")
+plt.title("Hours Slept vs Energy Scores")
+plt.legend()
+plt.show()

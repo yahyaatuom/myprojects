@@ -3,8 +3,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
-hours_slept = [4,5,5.5,6,6.5,7,7.5,8,8.5,9]
-energy_scores = [32,38,41,45,47,49,58,67,78,90]
+hours_slept = [4,5,5.5,6,6.5,7,7.5,8,8.5,8.1,9]
+energy_scores = [32,38,41,45,47,49,58,67,78,84,90]
 
 X = [[hours] for hours in hours_slept]
 y = energy_scores

@@ -26,7 +26,7 @@ y_pred = knn.predict(X_test)
 cm = confusion_matrix(y_test,y_pred)
 print(cm)
 
-#--- AUC---
+#---AUC---
 y_prob = knn.predict_proba(X_test)
 
 auc = roc_auc_score(y_test,y_prob,multi_class="ovr")

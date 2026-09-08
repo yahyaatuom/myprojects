@@ -20,5 +20,8 @@ model = RandomForestClassifier()
 model.fit(X_train,y_train)
 a = model.score(X_test,y_test)
 print(a)
-
+y_pred = model.predict(X_test)
 #-- Confusion Matrix
+cm = confusion_matrix(y_test,y_pred)
+print("Confusion Matrix:")
+print(cm)

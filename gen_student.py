@@ -6,14 +6,14 @@ random.seed(42)
 
 # Pools for generating realistic random data
 FIRST_NAMES = [
-    "James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda", 
-    "William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", 
+    "Yahya", "Huzaifa", "Ahmed", "Khaled", "Wasim", "Christopher", "Trump", "Ayesha", 
+    "Fatema", "Salama", "Mehmood", "Sultan", "Salman", "Susan", "Joseph", 
     "Jessica", "Thomas", "Sarah", "Charles", "Karen", "Christopher", "Nancy", 
     "Daniel", "Lisa", "Matthew", "Betty", "Anthony", "Margaret", "Mark", "Sandra"
 ]
 
 LAST_NAMES = [
-    "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", 
+    "Ali", "Khan", "Ahmed", "Zayed", "Qassem", "Garcia", "Miller", "Davis", 
     "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", 
     "Thomas", "Taylor", "Moore", "Jackson", "Martin", "Lee", "Perez", "Thompson", 
     "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson"
